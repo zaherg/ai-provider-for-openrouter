@@ -5,13 +5,13 @@
  *
  * @since 1.0.0
  *
- * @package WordPress\OpenRouterAiProvider
+ * @package Zaherg\OpenRouterAiProvider
  */
 
 declare(strict_types=1);
 
 spl_autoload_register(static function (string $class): void {
-    $prefix = 'WordPress\\OpenRouterAiProvider\\';
+    $prefix = 'Zaherg\\OpenRouterAiProvider\\';
     $baseDir = __DIR__ . '/';
 
     $len = strlen($prefix);

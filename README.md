@@ -45,7 +45,7 @@ $result = AiClient::prompt('Hello, world!')
 
 ```php
 use WordPress\AiClient\AiClient;
-use WordPress\OpenRouterAiProvider\Provider\OpenRouterProvider;
+use Zaherg\OpenRouterAiProvider\Provider\OpenRouterProvider;
 
 // Register the provider
 $registry = AiClient::defaultRegistry();

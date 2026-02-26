@@ -12,15 +12,15 @@
  * License URI: https://spdx.org/licenses/GPL-2.0-or-later.html
  * Text Domain: ai-provider-for-openrouter
  *
- * @package WordPress\OpenRouterAiProvider
+ * @package Zaherg\OpenRouterAiProvider
  */
 
 declare(strict_types=1);
 
-namespace WordPress\OpenRouterAiProvider;
+namespace Zaherg\OpenRouterAiProvider;
 
 use WordPress\AiClient\AiClient;
-use WordPress\OpenRouterAiProvider\Provider\OpenRouterProvider;
+use Zaherg\OpenRouterAiProvider\Provider\OpenRouterProvider;
 
 if (!defined('ABSPATH')) {
     return;

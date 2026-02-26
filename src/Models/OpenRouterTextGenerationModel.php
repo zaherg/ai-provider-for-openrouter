@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace WordPress\OpenRouterAiProvider\Models;
+namespace Zaherg\OpenRouterAiProvider\Models;
 
 use WordPress\AiClient\Common\Exception\InvalidArgumentException;
 use WordPress\AiClient\Common\Exception\RuntimeException;
@@ -23,7 +23,7 @@ use WordPress\AiClient\Results\Enums\FinishReasonEnum;
 use WordPress\AiClient\Tools\DTO\FunctionCall;
 use WordPress\AiClient\Tools\DTO\FunctionDeclaration;
 use WordPress\AiClient\Tools\DTO\WebSearch;
-use WordPress\OpenRouterAiProvider\Provider\OpenRouterProvider;
+use Zaherg\OpenRouterAiProvider\Provider\OpenRouterProvider;
 
 /**
  * Class for an OpenRouter text generation model using the OpenAI-compatible Responses API.

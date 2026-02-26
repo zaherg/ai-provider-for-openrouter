@@ -32,7 +32,7 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "WordPress\\OpenRouterAiProvider\\": "src/"
+            "Zaherg\\OpenRouterAiProvider\\": "src/"
         }
     },
     "config": {
