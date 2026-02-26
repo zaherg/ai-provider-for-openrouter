@@ -1,6 +1,7 @@
 {
-    "name": "zaher/ai-provider-for-openrouter",
+    "name": "zaherg/ai-provider-for-openrouter",
     "description": "AI Provider for OpenRouter for the PHP AI Client SDK. Works as both a Composer package and WordPress plugin.",
+    "homepage": "https://github.com/zaherg/ai-provider-for-openrouter",
     "license": "GPL-2.0-or-later",
     "keywords": [
         "ai",
@@ -11,9 +12,13 @@
     ],
     "authors": [
         {
-            "name": "zaher"
+            "name": "AI Team"
         }
     ],
+    "support": {
+        "issues": "https://github.com/zaherg/ai-provider-for-openrouter/issues",
+        "source": "https://github.com/zaherg/ai-provider-for-openrouter"
+    },
     "require": {
         "php": ">=7.4"
     },

@@ -2,12 +2,11 @@
 
 /**
  * Plugin Name: AI Provider for OpenRouter
- * Plugin URI: https://openrouter.ai/
  * Description: AI Provider for OpenRouter for the WordPress AI Client (text generation via the OpenAI-compatible Responses API).
  * Requires at least: 6.9
  * Requires PHP: 7.4
  * Version: 0.1.0
- * Author: zaher
+ * Author: AI Team
  * License: GPL-2.0-or-later
  * License URI: https://spdx.org/licenses/GPL-2.0-or-later.html
  * Text Domain: ai-provider-for-openrouter
