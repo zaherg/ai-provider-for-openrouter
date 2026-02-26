@@ -29,11 +29,11 @@ composer require zaher/ai-provider-for-openrouter
 
 ### With WordPress
 
-The provider automatically registers itself with the PHP AI Client on the `init` hook. Simply ensure both plugins are active and configure your API key:
+The provider automatically registers itself with the PHP AI Client on the `init` hook. Simply ensure both plugins are active and configure your API key in `wp-config.php`:
 
 ```php
-// Set your OpenRouter API key (or use the OPENROUTER_API_KEY environment variable)
-putenv('OPENROUTER_API_KEY=your-api-key');
+define('OPENROUTER_API_KEY', 'your-api-key');
+define('OPENROUTER_BASE_URL', 'https://openrouter.ai/api/v1'); // Optional override
 
 // Use the provider
 $result = AiClient::prompt('Hello, world!')
@@ -51,8 +51,9 @@ use Zaherg\OpenRouterAiProvider\Provider\OpenRouterProvider;
 $registry = AiClient::defaultRegistry();
 $registry->registerProvider(OpenRouterProvider::class);
 
-// Set your API key
-putenv('OPENROUTER_API_KEY=your-api-key');
+// Configure constants before using the provider (e.g. in wp-config.php for WordPress)
+define('OPENROUTER_API_KEY', 'your-api-key');
+define('OPENROUTER_BASE_URL', 'https://openrouter.ai/api/v1'); // Optional override
 
 // Generate text
 $result = AiClient::prompt('Explain quantum computing')
@@ -72,10 +73,11 @@ Image generation and text-to-speech are intentionally not implemented in this pa
 
 ## Configuration
 
-The provider uses the `OPENROUTER_API_KEY` environment variable for authentication. You can set this in your environment or via PHP:
+Configure the provider via PHP constants (typically in `wp-config.php`):
 
 ```php
-putenv('OPENROUTER_API_KEY=your-api-key');
+define('OPENROUTER_API_KEY', 'your-api-key');
+define('OPENROUTER_BASE_URL', 'https://openrouter.ai/api/v1'); // Optional override
 ```
 
 OpenRouter also recommends optional attribution headers such as `HTTP-Referer` and `X-OpenRouter-Title`. If you need those, set them through your HTTP transport/request options in the PHP AI Client stack.

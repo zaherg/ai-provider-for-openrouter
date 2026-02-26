@@ -29,13 +29,13 @@ Available models are dynamically discovered from the OpenRouter `/models` endpoi
 * PHP 7.4 or higher
 * For WordPress 6.9, the [wordpress/php-ai-client](https://github.com/WordPress/php-ai-client) package must be installed
 * For WordPress 7.0 and above, no additional changes are required
-* OpenRouter API key (`OPENROUTER_API_KEY`)
+* OpenRouter API key constant (`OPENROUTER_API_KEY`)
 
 == Installation ==
 
 1. Upload the plugin files to `/wp-content/plugins/ai-provider-for-openrouter/`
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Configure your OpenRouter API key via the `OPENROUTER_API_KEY` environment variable or constant
+3. Configure your OpenRouter API key in `wp-config.php` via the `OPENROUTER_API_KEY` constant
 
 == Frequently Asked Questions ==
 
