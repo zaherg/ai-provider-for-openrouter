@@ -31,6 +31,13 @@ class OpenRouterProvider extends AbstractApiProvider
      */
     protected static function baseUrl(): string
     {
+        if (defined('OPENROUTER_BASE_URL')) {
+            $configuredBaseUrl = constant('OPENROUTER_BASE_URL');
+            if (is_scalar($configuredBaseUrl) && (string) $configuredBaseUrl !== '') {
+                return rtrim((string) $configuredBaseUrl, '/');
+            }
+        }
+
         return 'https://openrouter.ai/api/v1';
     }
 
