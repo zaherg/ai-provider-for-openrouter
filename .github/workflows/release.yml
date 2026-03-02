@@ -1,0 +1,51 @@
+name: Release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  release:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    env:
+      PLUGIN_SLUG: ai-provider-for-openrouter
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Extract version from plugin header
+        id: version
+        run: |
+          VERSION=$(grep -m1 'Version:' plugin.php | sed 's/.*Version:\s*//' | tr -d '[:space:]')
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "Detected version: $VERSION"
+
+      - name: Verify tag does not exist
+        run: |
+          if git rev-parse "v${{ steps.version.outputs.version }}" >/dev/null 2>&1; then
+            echo "::error::Tag v${{ steps.version.outputs.version }} already exists. Bump the version in plugin.php first."
+            exit 1
+          fi
+
+      - name: Build plugin zip
+        run: |
+          STAGE_DIR=$(mktemp -d)
+          rsync -a --exclude-from=.distignore ./ "$STAGE_DIR/$PLUGIN_SLUG/"
+          cd "$STAGE_DIR"
+          zip -r "$GITHUB_WORKSPACE/$PLUGIN_SLUG-${{ steps.version.outputs.version }}.zip" "$PLUGIN_SLUG"
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "v${{ steps.version.outputs.version }}" \
+            "$PLUGIN_SLUG-${{ steps.version.outputs.version }}.zip" \
+            --generate-notes \
+            --latest \
+            --title "v${{ steps.version.outputs.version }}"
