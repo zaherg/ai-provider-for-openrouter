@@ -1,37 +1,37 @@
-name: Update Changelog
+name: Validate Release Metadata
 
 on:
   release:
     types: [released]
 
 jobs:
-  update-changelog:
+  validate-release-metadata:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
 
     steps:
-      - name: Checkout code
+      - name: Checkout released tag
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: ${{ github.event.release.target_commitish }}
+          ref: refs/tags/${{ github.event.release.tag_name }}
 
-      - name: Extract release date from tag
-        id: release_date
+      - name: Extract release body
         run: |
-          echo "date=$(git log -1 --date=short --format=%ad '${{ github.event.release.tag_name }}')" >> "$GITHUB_OUTPUT"
+          set -euo pipefail
+          jq -r '.release.body // ""' "$GITHUB_EVENT_PATH" > .release-body.txt
 
-      - name: Update CHANGELOG.md (Keep a Changelog)
-        uses: stefanzweifel/changelog-updater-action@v1
-        with:
-          release-date: ${{ steps.release_date.outputs.date }}
-          latest-version: ${{ github.event.release.tag_name }}
-          release-notes: ${{ github.event.release.body }}
+      - name: Validate tag, versions, changelog, and release notes
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: |
+          set -euo pipefail
+          bash scripts/validate-release-metadata.sh \
+            --tag-version "$RELEASE_TAG" \
+            --release-body-file .release-body.txt
 
-      - name: Commit updated CHANGELOG
-        uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          branch: ${{ github.event.release.target_commitish }}
-          commit_message: "docs: update changelog for ${{ github.event.release.tag_name }}"
-          file_pattern: CHANGELOG.md
+      - name: Note release process
+        run: |
+          echo "Release metadata is validated from the committed tag contents."
+          echo "Use scripts/create-release.sh to finalize CHANGELOG.md before publishing."
