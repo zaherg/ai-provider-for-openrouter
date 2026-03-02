@@ -14,8 +14,22 @@ This package is based on the [WordPress AI Provider for OpenAI](https://github.c
 
 ### As a Composer Package
 
+First, add the GitHub repository to your `composer.json`:
+
+```json
+{
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/zaherg/ai-provider-for-openrouter"
+        }
+    ]
+}
+```
+
+Then install the package:
 ```bash
-composer require zaher/ai-provider-for-openrouter
+composer require zaherg/ai-provider-for-openrouter:^0.1.0
 ```
 
 ### As a WordPress Plugin
