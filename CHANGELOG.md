@@ -6,6 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project aims to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## [Unreleased]
 
+### Changed
+
+- add AI disclaimer CAUTION alert to README
+- Remove plugin.php export-ignore from .gitattributes
+- update gitignore
+- add test suite with PHPStan level max compliance
+- update installation instructions for GitHub-only distribution
+- add bump-type dropdown with optional version override to release workflow
+
 ## [0.1.0] - 2026-03-02
 
 ### Added
@@ -31,5 +40,5 @@ and this project aims to adhere to [Semantic Versioning](https://semver.org/spec
 - OpenRouter model discovery and metadata parsing using the `/models` endpoint.
 - WordPress plugin bootstrap and Composer package support for distribution.
 
-[Unreleased]: https://github.com/zaherg/ai-provider-for-openrouter/compare/8b8d7da...HEAD
+[Unreleased]: https://github.com/zaherg/ai-provider-for-openrouter/compare/0.1.0...HEAD
 [0.1.0]: https://github.com/zaherg/ai-provider-for-openrouter/commit/8b8d7da
