@@ -1,5 +1,9 @@
 # AI Provider for OpenRouter
 
+> [!CAUTION]
+> This was built using AI, so make sure to read our [DISCLAIMER](DISCLAIMER.md) file before using the plugin.
+> Also, this is none-official plugin and has nothing to do with the WP AI Core team.
+
 An AI Provider for OpenRouter for the [PHP AI Client](https://github.com/WordPress/php-ai-client) SDK. Works as both a Composer package and a WordPress plugin.
 
 This package is based on the [WordPress AI Provider for OpenAI](https://github.com/WordPress/ai-provider-for-openai) package and adapts its provider implementation for OpenRouter.
