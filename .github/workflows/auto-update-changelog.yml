@@ -6,12 +6,17 @@ on:
       - main
   workflow_dispatch:
 
+permissions:
+  contents: write
+
+concurrency:
+  group: update-changelog-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   update-changelog:
     if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
 
     steps:
       - name: Checkout code
