@@ -8,6 +8,7 @@ and this project aims to adhere to [Semantic Versioning](https://semver.org/spec
 
 ### Changed
 
+- automate changelog updates
 - add AI disclaimer CAUTION alert to README
 - Remove plugin.php export-ignore from .gitattributes
 - update gitignore
