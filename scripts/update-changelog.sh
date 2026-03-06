@@ -57,7 +57,7 @@ while IFS= read -r subject; do
     "Update CHANGELOG.md")
       continue
       ;;
-    "docs: auto-update changelog"*|"chore: auto-update changelog"*)
+    "docs: auto-update changelog"*|"chore: auto-update changelog"*|"chore(changelog): update unreleased section"*)
       continue
       ;;
   esac
